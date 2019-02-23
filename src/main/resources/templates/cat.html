@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <h1>Hello</h1>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="movie : ${movies}">
+        <span th:text="${movie.title}"></span>
+        <span th:text="${movie.date}"></span>
+        <span th:text="${movie.author}"></span>
+        <span th:text="${movie.genre}"></span>
+    </div>
+
+
+</body>
+</html>
