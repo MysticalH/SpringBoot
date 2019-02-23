@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <h1>Hello</h1>
     <meta charset="UTF-8">
 
 </head>
 <body>
-    <title>Title</title>
+<title>Title</title>
+<form action="#" th:action="@{/addMovie}"
+      th:object="${movie}" method="post">
+    <div>
+        <label title="Title">Title</label>
+        <input type="text" th:field="*{title}" id="title" placeholder="Title"/>
+    </div>
+    <div>
+        <label title="Author">Author</label>
+        <input type="text" th:field="*{author}" id="author" placeholder="Author"/>
+    </div>
+    <div>
+        <label title="Date">Date</label>
+        <input type="text" th:field="*{date}" id="date"/>
+    </div>
+    <div>
+        <label title="Genre">Genre</label>
+        <input type="text" th:field="*{genre}" id="genre" placeholder="Genre"/>
+    </div>
+
+    <input type="submit" value="add movie">
+
+
+    <div></div>
+
+</form>
+
 </body>
 </html>
