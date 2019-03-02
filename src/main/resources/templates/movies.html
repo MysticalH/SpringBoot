@@ -6,11 +6,17 @@
     <title>Title</title>
 </head>
 <body>
+<div>
     <form action="/search">
         <input name="movieTitle">
         <input type="submit" value="Искать">
+
+    </form>
+    <form action="/" >
         <input type="submit" value="на главную">
     </form>
+</div>
+
     <div th:each="movie : ${movies}">
         <span th:text="${movie.id}"></span>
         <span th:text="${movie.title}"></span>
