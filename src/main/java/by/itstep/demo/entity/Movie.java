@@ -8,6 +8,9 @@ import lombok.*;
 @ToString
 public class Movie {
 
+
+
+    Integer id;
     String title;
     String date;
     String author;

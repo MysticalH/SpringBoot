@@ -9,6 +9,7 @@
 <title>Title</title>
 <form action="#" th:action="@{/addMovie}"
       th:object="${movie}" method="post">
+    <input type="hidden" th:field="*{id}">
     <div>
         <label title="Title">Title</label>
         <input type="text" th:field="*{title}" id="title" placeholder="Title"/>

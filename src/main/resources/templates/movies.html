@@ -6,12 +6,23 @@
     <title>Title</title>
 </head>
 <body>
+    <form action="/search">
+        <input name="movieTitle">
+        <input type="submit" value="Искать">
+        <input type="submit" value="на главную">
+    </form>
     <div th:each="movie : ${movies}">
+        <span th:text="${movie.id}"></span>
         <span th:text="${movie.title}"></span>
         <span th:text="${movie.date}"></span>
         <span th:text="${movie.author}"></span>
         <span th:text="${movie.genre}"></span>
+        <a th:href="@{'/editMovie?id=' + ${movie.id}}"> <img src="edit.png"></a>
+        <a th:href="@{'/deleteMovie?id=' + ${movie.id}}"> <img src="del.png"></a>
+
     </div>
+
+<a href="/addMovie">Добавить</a>
 
 
 </body>
