@@ -4,6 +4,10 @@
     <h1>Hello</h1>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div>
@@ -18,17 +22,38 @@
 </div>
 
     <div th:each="movie : ${movies}">
-        <span th:text="${movie.id}"></span>
-        <span th:text="${movie.title}"></span>
+        <!--<span th:text="${movie.id}"></span>-->
+        <span th:text="${movie.title}" class="movieName"></span>
         <span th:text="${movie.date}"></span>
         <span th:text="${movie.author}"></span>
         <span th:text="${movie.genre}"></span>
         <a th:href="@{'/editMovie?id=' + ${movie.id}}"> <img src="edit.png"></a>
         <a th:href="@{'/deleteMovie?id=' + ${movie.id}}"> <img src="del.png"></a>
+        <img src="info.png" class="info" title="Movie info" th:movieId="${movie.id}">
+
 
     </div>
 
+
+    <div id="movieInfo">
+        <div id="moviePoster"></div>
+    </div>
+
 <a href="/addMovie">Добавить</a>
+
+<script>
+    $('.info').click(function (e) {
+        let movieTitle = $(e.target).parent().find('.movieName')[0].innerText; //[0].innerHTML
+        console.log(movieTitle);
+       $.ajax({
+           url: "http://www.omdbapi.com/?apikey=468594f3&t=" + movieTitle,
+           success: function (data){
+               $('#moviePoster').empty();
+               $('<img src="'+data.Poster+'">').appendTo($('#moviePoster'));
+           }
+       })
+    })
+</script>
 
 
 </body>

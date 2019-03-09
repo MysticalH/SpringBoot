@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 public class Movie {
 
-
+// OmdbApi omdb = new OmdbApi("468594f3");
 
     Integer id;
     String title;

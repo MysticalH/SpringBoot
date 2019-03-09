@@ -23,7 +23,7 @@ public class MovieOnMemoryRepository implements MovieRepository {
 
     @Override
     public List<Movie> getAll() {
-
+        movies.sort((a,b) -> a.getId() - b.getId());
         return movies;
     }
 
